@@ -4,15 +4,20 @@ class Demand < ActiveRecord::Base
 
 
   def self.search( address, filter)
-  	query = search_conditions( filter )
+  	ids = get_nearby_ngos(address).map(&:id)
 
-  	ids = get_nearby_ngos( address).map(&:id)
+  	demands = Demand.where(:ngo_id => ids)
 
-  	Demand.where(:ngo_id => ids ).where( query ).index_by(&:ngo_id).slice(*ids).values
+  	if !filter.blank?
+  		query = search_conditions(filter)
+  		demands = demands.where(query)
+  	end
+
+  	demands.group_by(&:ngo_id).slice(*ids).values.flatten
   end
 
   def self.get_nearby_ngos( address )
-  	address.blank? ? Ngo.all : Ngo.near( address, 100, :units => :km) 
+  	address.blank? ? Ngo.all : Ngo.near(address, 100, :units => :km) 
   end
 
   def self.search_conditions(filter)
