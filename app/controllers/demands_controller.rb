@@ -4,12 +4,21 @@ class DemandsController < ApplicationController
 
   respond_to :json
 
+  def_param_group :demands do
+    param :demands, Hash do
+      param :ngo_id, Integer, "The NGO id that this demand belongs for"
+      param :data, String, "Demand description"
+    end
+  end
+
+  api :GET, "/demands", "Get all demands"
   # GET /demands
   # GET /demands.json
   def index
     @demands = Demand.all
   end
 
+  api :GET, "/demands/:id", "Get specific demand"
   # GET /demands/1
   # GET /demands/1.json
   def show
@@ -25,6 +34,9 @@ class DemandsController < ApplicationController
   def edit
   end
 
+
+  api :POST, "/demands", "Create new demand"
+  param_group :demands
   # POST /demands
   # POST /demands.json
   def create
@@ -39,6 +51,8 @@ class DemandsController < ApplicationController
     end
   end
 
+  api :PUT, "/demands", "Update existing demand"
+  param_group :demands
   # PATCH/PUT /demands/1
   # PATCH/PUT /demands/1.json
   def update
@@ -51,6 +65,8 @@ class DemandsController < ApplicationController
     end
   end
 
+
+  api :DELETE, "/demands", "Delete demand"
   # DELETE /demands/1
   # DELETE /demands/1.json
   def destroy
@@ -60,6 +76,9 @@ class DemandsController < ApplicationController
     end
   end
 
+  api :GET, "/demands/search", "Search demands by address and filter"
+  param :address, String, :desc => "Address to get all near by NGOs wihtin ( 100 km )"
+  param :filter, String, :desc => "Space separated key words to search demand data for"
   def search
     @demands = Demand.search( params['address'], params['filter'])
   end

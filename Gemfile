@@ -8,9 +8,11 @@ gem 'pg'
 # Geocoding gem
 gem 'geocoder'
 
+#Api documentation 
+gem 'apipie-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

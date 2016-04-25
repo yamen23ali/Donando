@@ -1,0 +1,566 @@
+  <h4><a href='#demands'>Demands</a></h4>
+  <ul>
+      <li><a href='#demands-index'>index</a></li>
+      <li><a href='#demands-show'>show</a></li>
+      <li><a href='#demands-create'>create</a></li>
+      <li><a href='#demands-update'>update</a></li>
+      <li><a href='#demands-destroy'>destroy</a></li>
+      <li><a href='#demands-search'>search</a></li>
+  </ul>
+  <h4><a href='#ngos'>Ngos</a></h4>
+  <ul>
+      <li><a href='#ngos-index'>index</a></li>
+      <li><a href='#ngos-show'>show</a></li>
+      <li><a href='#ngos-create'>create</a></li>
+      <li><a href='#ngos-update'>update</a></li>
+      <li><a href='#ngos-destroy'>destroy</a></li>
+      <li><a href='#ngos-near'>near</a></li>
+  </ul>
+
+
+
+  <hr/>
+
+  <div>
+    <h2 id="demands">
+      <a href='#demands'>Demands</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="demands-index">
+      <a href='#demands'>Demands</a> / <a href='#demands-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /demands
+            <br>
+            <small>Get all demands</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="demands-show">
+      <a href='#demands'>Demands</a> / <a href='#demands-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /demands/:id
+            <br>
+            <small>Get specific demand</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="demands-create">
+      <a href='#demands'>Demands</a> / <a href='#demands-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /demands
+            <br>
+            <small>Create new demand</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>demands </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>ngo_id </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>The NGO id that this demand belongs for</p>
+
+    </li>
+    
+    <li>
+      <strong>data </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Demand description</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="demands-update">
+      <a href='#demands'>Demands</a> / <a href='#demands-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /demands
+            <br>
+            <small>Update existing demand</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>demands </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>ngo_id </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>The NGO id that this demand belongs for</p>
+
+    </li>
+    
+    <li>
+      <strong>data </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Demand description</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="demands-destroy">
+      <a href='#demands'>Demands</a> / <a href='#demands-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /demands
+            <br>
+            <small>Delete demand</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="demands-search">
+      <a href='#demands'>Demands</a> / <a href='#demands-search'>search</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /demands/search
+            <br>
+            <small>Search demands by address and filter</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>address </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Address to get all near by NGOs wihtin ( 100 km )</p>
+
+    </li>
+    
+    <li>
+      <strong>filter </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Space separated key words to search demand data for</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="ngos">
+      <a href='#ngos'>Ngos</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="ngos-index">
+      <a href='#ngos'>Ngos</a> / <a href='#ngos-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /ngos
+            <br>
+            <small>Get all Ngos</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="ngos-show">
+      <a href='#ngos'>Ngos</a> / <a href='#ngos-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /ngos/:id
+            <br>
+            <small>Get specific Ngo</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="ngos-create">
+      <a href='#ngos'>Ngos</a> / <a href='#ngos-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /ngos
+            <br>
+            <small>Create Ngo</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>ngo </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO name</p>
+
+    </li>
+    
+    <li>
+      <strong>email </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO email</p>
+
+    </li>
+    
+    <li>
+      <strong>address </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO address</p>
+
+    </li>
+    
+    <li>
+      <strong>phone </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO phone</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="ngos-update">
+      <a href='#ngos'>Ngos</a> / <a href='#ngos-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /ngos/:id
+            <br>
+            <small>Update Ngo data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>ngo </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO name</p>
+
+    </li>
+    
+    <li>
+      <strong>email </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO email</p>
+
+    </li>
+    
+    <li>
+      <strong>address </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO address</p>
+
+    </li>
+    
+    <li>
+      <strong>phone </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>NGO phone</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="ngos-destroy">
+      <a href='#ngos'>Ngos</a> / <a href='#ngos-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /ngos/:id
+            <br>
+            <small>Remove Ngo</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="ngos-near">
+      <a href='#ngos'>Ngos</a> / <a href='#ngos-near'>near</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /ngos/near
+            <br>
+            <small>Get nearby NGOs</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>address </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Address to get all near by NGOs wihtin ( 100 km )</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>

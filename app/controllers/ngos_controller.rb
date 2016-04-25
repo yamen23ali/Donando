@@ -4,12 +4,23 @@ class NgosController < ApplicationController
 
   respond_to :json
 
+  def_param_group :ngo do
+    param :ngo, Hash do
+      param :name, String, "NGO name"
+      param :email, String, "NGO email"
+      param :address, String, "NGO address"
+      param :phone, String, "NGO phone"
+    end
+  end
+
+  api :GET, "/ngos", "Get all Ngos"
   # GET /ngos
   # GET /ngos.json
   def index
     @ngos = Ngo.all
   end
 
+  api :GET, "/ngos/:id", "Get specific Ngo"
   # GET /ngos/1
   # GET /ngos/1.json
   def show
@@ -24,6 +35,9 @@ class NgosController < ApplicationController
   def edit
   end
 
+
+  api :POST, "/ngos", "Create Ngo"
+  param_group :ngo
   # POST /ngos
   # POST /ngos.json
   def create
@@ -39,6 +53,8 @@ class NgosController < ApplicationController
     end
   end
 
+  api :PUT, "/ngos/:id", "Update Ngo data"
+  param_group :ngo
   # PATCH/PUT /ngos/1
   # PATCH/PUT /ngos/1.json
   def update
@@ -51,6 +67,7 @@ class NgosController < ApplicationController
     end
   end
 
+  api :DELETE, "/ngos/:id", "Remove Ngo"
   # DELETE /ngos/1
   # DELETE /ngos/1.json
   def destroy
@@ -60,6 +77,8 @@ class NgosController < ApplicationController
     end
   end
 
+  api :GET, "/ngos/near", "Get nearby NGOs"
+  param :address, String, :desc => "Address to get all near by NGOs wihtin ( 100 km )"
   def near
     @ngos = Ngo.near(params['address'], 100, :units => :km)
   end

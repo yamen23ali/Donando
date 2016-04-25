@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  #match 'ngos/near' => 'ngos#near', :via => :get
+  apipie
 
   resources :demands do
     collection do
