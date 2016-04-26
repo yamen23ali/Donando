@@ -80,7 +80,11 @@ class DemandsController < ApplicationController
   param :address, String, :desc => "Address to get all near by NGOs wihtin ( 100 km )"
   param :filter, String, :desc => "Space separated key words to search demand data for"
   def search
-    @demands = Demand.search( params['address'], params['filter'])
+    if params['address'].blank?
+      @demands = Demand.search_all( params['filter'], 10, 0)
+    else
+      @demands = Demand.search( params['address'], params['filter'], 10, 0)
+    end
   end
 
 
