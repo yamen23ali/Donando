@@ -10,9 +10,6 @@ class Demand < ActiveRecord::Base
   belongs_to :ngo
   validates :ngo, :presence => true
 
-
-
-
   def self.search(address, filter, size, page)
     nearby_ngos = get_nearby_ngos(address)
 
@@ -23,13 +20,16 @@ class Demand < ActiveRecord::Base
     demands = distance_weighting(response.results, nearby_ngos)
 
     demands.sort_by { |element| element[:_score] }.reverse
+
+    demands
   end
 
   def self.search_all(filter, size, page)
 
     response = Demand.__elasticsearch__.search( QueryRepo.demands_query( filter, [] ), size: size, from: page)
 
-    response.records
+    distance_weighting(response.results, Ngo.all)
+   # binding.pry
   end
 
   private
@@ -44,18 +44,19 @@ class Demand < ActiveRecord::Base
     demands.map { |demand|  
       ngo = ngos_hash[demand._source.ngo_id.to_s]
       score = self.adjust_score( ngo[:distance], demand._score )
-      { "_score": score, data: demand.highlight.data, ngo: ngo[:ngo] }
+      
+      { "_score": score, data: demand.highlight.data[0], ngo: ngo[:ngo] }
     }
   end
 
   def self.adjust_score(distance, score)
-    score - (  ( distance / 2 ) / 10 )
+    distance.blank? ?  score : ( score - (  ( distance / 2 ) / 10 ) )
   end
 
   def self.ngos_to_h(ngos)
     ngos_hash = Hash.new
     ngos.each{|ngo|
-      ngos_hash[ ngo.id.to_s ] = { ngo: ngo, distance: ngo.distance }
+      ngos_hash[ ngo.id.to_s ] = { ngo: ngo, distance: ngo[:distance] }
     }
     ngos_hash
   end
