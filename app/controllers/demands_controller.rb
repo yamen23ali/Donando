@@ -1,4 +1,3 @@
-require 'pry'
 class DemandsController < ApplicationController
 
   before_action :set_demand, only: [:show, :edit, :update, :destroy]
