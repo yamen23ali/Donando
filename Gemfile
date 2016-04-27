@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 ruby "2.2.1"
 
+#Elasticsearch gem
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 # Use postgres as the database for Active Record
 gem 'pg'
 

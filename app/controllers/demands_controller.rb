@@ -79,8 +79,18 @@ class DemandsController < ApplicationController
   api :GET, "/demands/search", "Search demands by address and filter"
   param :address, String, :desc => "Address to get all near by NGOs wihtin ( 100 km )"
   param :filter, String, :desc => "Space separated key words to search demand data for"
+  param :size, Integer, :desc => "Page Size"
+  param :page, Integer, :desc => "Page Number"
   def search
-    @demands = Demand.search( params['address'], params['filter'])
+    size = ( params['size'].blank? ? 20 : params['size']  )
+    page = ( params['page'].blank? ? 0 : params['page']  )
+
+    if params['address'].blank?
+      @demands = Demand.search_all( params['filter'], size, page)
+    else
+      @demands = Demand.search( params['address'], params['filter'], size, page)
+    end
+    
   end
 
 
