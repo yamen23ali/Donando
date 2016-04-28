@@ -1,6 +1,6 @@
 require 'elasticsearch/model'
 require 'query_repo.rb'
-require 'pry'
+#require 'pry'
 
 class Demand < ActiveRecord::Base
 
