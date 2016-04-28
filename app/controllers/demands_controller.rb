@@ -85,12 +85,7 @@ class DemandsController < ApplicationController
     size = ( params['size'].blank? ? 20 : params['size']  )
     page = ( params['page'].blank? ? 0 : params['page']  )
 
-    if params['address'].blank?
-      @demands = Demand.search_all( params['filter'], size, page)
-    else
-      @demands = Demand.search( params['address'], params['filter'], size, page)
-    end
-    
+    @demands = Demand.search( params['address'], params['filter'], size, page)
   end
 
 
