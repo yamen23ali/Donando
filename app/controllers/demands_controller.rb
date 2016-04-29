@@ -82,8 +82,8 @@ class DemandsController < ApplicationController
   param :size, Integer, :desc => "Page Size"
   param :page, Integer, :desc => "Page Number"
   def search
-    size = ( params['size'].blank? ? 20 : params['size']  )
-    page = ( params['page'].blank? ? 0 : params['page']  )
+    size = ( params['size'].blank? ? 20 : params['size'].to_i  )
+    page = ( params['page'].blank? ? 0 : params['page'].to_i  )
 
     @demands = Demand.search( params['address'], params['filter'], size, page)
   end
