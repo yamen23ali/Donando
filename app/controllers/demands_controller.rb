@@ -89,11 +89,18 @@ class DemandsController < ApplicationController
   end
 
   def import
-    DataImportWorker.perform_async('/public/ngo_data.xls')
+    
+    if params['full_import'].blank?
+      DataImportWorker.perform_async('/public/ngo_data.xls')
+    else
+      Demand.import
+    end
+
+    respond_with {}
   end
 
   private
-  
+
     # Use callbacks to share common setup or constraints between actions.
     def set_demand
       @demand = Demand.find(params[:id])

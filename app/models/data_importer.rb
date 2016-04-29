@@ -1,6 +1,4 @@
 require 'spreadsheet'
-require 'pry'
-#require 'data_import_worker.rb'
 
 class DataImporter
 

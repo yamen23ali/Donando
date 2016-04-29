@@ -96,5 +96,3 @@ class Demand < ActiveRecord::Base
   end
 
 end
-
-Demand.import
