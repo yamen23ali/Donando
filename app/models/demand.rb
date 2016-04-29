@@ -53,7 +53,7 @@ class Demand < ActiveRecord::Base
   end
 
   def self.group_by_ngo( demands)
-    ngo_group = {}
+    ngo_group = ActiveSupport::OrderedHash.new
 
     demands.each{|demand|
       key = demand.ngo_id
