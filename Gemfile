@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 
 ruby "2.2.1"
 
+#background processing
+gem 'sidekiq'
+
+#CSV gem
+gem 'spreadsheet'
+
 #Elasticsearch gem
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

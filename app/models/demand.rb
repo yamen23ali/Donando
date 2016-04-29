@@ -8,7 +8,7 @@ class Demand < ActiveRecord::Base
   include Searchable
 
   belongs_to :ngo
-  validates :ngo, :presence => true
+  #validates :ngo, :presence => true
 
   attr_accessor :score
 

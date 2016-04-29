@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :demands do
     collection do
       get 'search'
+      get 'import'
     end
   end
 
