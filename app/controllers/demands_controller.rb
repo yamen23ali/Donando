@@ -88,8 +88,7 @@ class DemandsController < ApplicationController
     @demands = Demand.search( params['address'], params['filter'], size, page)
   end
 
-  def import
-    
+  def import 
     if params['full_import'].blank?
       DataImportWorker.perform_async('/public/ngo_data.xls')
     else

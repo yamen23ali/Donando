@@ -1,7 +1,7 @@
 Sidekiq.configure_server do |config|
-  config.redis = { url: 'redis://pub-redis-19163.us-east-1-1.1.ec2.garantiadata.com:19163', password: "donando", network_timeout: 5 }
+  config.redis = { url:  ENV['SIDEKIQ_REDIS'] , password: ENV['SIDEKIQ_REDIS_PASSWORD'], network_timeout: 5 }
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: 'redis://pub-redis-19163.us-east-1-1.1.ec2.garantiadata.com:19163', password: "donando", network_timeout: 5 }
+   config.redis = { url:  ENV['SIDEKIQ_REDIS'] , password: ENV['SIDEKIQ_REDIS_PASSWORD'], network_timeout: 5 }
 end

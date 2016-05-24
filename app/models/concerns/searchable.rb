@@ -12,7 +12,7 @@ module Searchable
     index_name(INDEX_NAME)
 
     #==== create and delete only for the first time then comment it out
-    Demand.__elasticsearch__.client = Elasticsearch::Client.new host: 'https://of9o907mbl:kb8sl8g1xi@donandoc-1703274703.eu-west-1.bonsai.io'
+    Demand.__elasticsearch__.client = Elasticsearch::Client.new host:  ENV["ES_CLUSTER"]
     #Demand.__elasticsearch__.client.indices.delete index: Demand.index_name rescue nil
 
     Demand.__elasticsearch__.client.indices.create \
