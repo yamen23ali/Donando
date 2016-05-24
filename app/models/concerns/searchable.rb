@@ -10,7 +10,7 @@ module Searchable
     include Elasticsearch::Model::Callbacks
 
     index_name(INDEX_NAME)
-
+    
     #==== create and delete only for the first time then comment it out
     Demand.__elasticsearch__.client = Elasticsearch::Client.new host:  ENV["ES_CLUSTER"]
     #Demand.__elasticsearch__.client.indices.delete index: Demand.index_name rescue nil
