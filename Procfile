@@ -1,1 +1,1 @@
-worker:  bundle exec exec sidekiq
+worker: bundle exec sidekiq -c 5 -v
