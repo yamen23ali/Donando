@@ -29,7 +29,9 @@ test:
 
 production:
   <<: *default
-  database: donando_production
+  host: <%= ENV['PSQL_HOST'] %>
   pool: 5
-  username: 
-  password:
+  username: <%= ENV['PSQL_USER'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
+  port: <%= ENV['PSQL_PORT'] %>
+  database: <%= ENV['PSQL_DATABASE'] %>

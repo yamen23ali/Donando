@@ -17,3 +17,8 @@
 
 # Ignore application configuration
 /config/application.yml
+
+donando.yml
+piu.yml
+scm-source.json
+deploy.sh

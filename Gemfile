@@ -2,8 +2,12 @@ source 'https://rubygems.org'
 
 ruby "2.2.1"
 
+gem 'unicorn', '~> 4.9'
+
 #background processing
-gem 'sidekiq'
+gem 'sidekiq', '~> 4.0.1'
+
+gem 'redis-rails', '~> 4.0.0'
 
 #CSV gem
 gem 'spreadsheet'
@@ -13,7 +17,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 # Use postgres as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.3'
 
 # Geocoding gem
 gem 'geocoder'
@@ -56,6 +60,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'figaro'
+
+gem "health_check"
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

@@ -51,7 +51,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
     daemons (1.2.3)
     database_cleaner (1.3.0)
@@ -84,6 +84,8 @@ GEM
       thor (~> 0.14)
     geocoder (1.3.4)
     hashie (3.4.3)
+    health_check (1.5.1)
+      rails (>= 2.3.0)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.4.1)
@@ -93,6 +95,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kgio (2.10.0)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     mailcatcher (0.6.1)
@@ -113,7 +116,7 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
-    pg (0.18.1)
+    pg (0.18.4)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -143,10 +146,27 @@ GEM
       activesupport (= 4.1.6)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.16.0)
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
     redis (3.3.0)
+    redis-actionpack (4.0.1)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.1.5)
+      activesupport (>= 3, < 5)
+      redis-store (~> 1.1.0)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.7)
+      redis (>= 2.2)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -179,7 +199,7 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
-    sidekiq (4.1.1)
+    sidekiq (4.0.2)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
@@ -217,6 +237,10 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    unicorn (4.9.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -235,23 +259,29 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   figaro
   geocoder
+  health_check
   jbuilder (~> 2.0)
   jquery-rails
   mailcatcher
-  pg
+  pg (~> 0.18.3)
   pry
   rails (= 4.1.6)
   rails_12factor
+  redis-rails (~> 4.0.0)
   rspec-rails (~> 3.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda
   shoulda-matchers
-  sidekiq
+  sidekiq (~> 4.0.1)
   spreadsheet
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  unicorn (~> 4.9)
+
+RUBY VERSION
+   ruby 2.2.1p85
 
 BUNDLED WITH
-   1.10.6
+   1.12.5
