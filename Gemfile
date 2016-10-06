@@ -63,6 +63,7 @@ gem 'figaro'
 
 gem "health_check"
 
+gem 'aws-sdk', '~> 2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

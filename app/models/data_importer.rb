@@ -5,7 +5,7 @@ class DataImporter
   # Bulk insert will disable the auto sync with ES , so will go with regular insert for now
   def self.import(file_path)
     Spreadsheet.client_encoding = 'UTF-8'
-    book = Spreadsheet.open "#{Rails.root}#{file_path}"
+    book = Spreadsheet.open file_path 
 
     ngos = get_ngos(book.worksheet 0)
     demands = get_deamnds(book.worksheet 1)
